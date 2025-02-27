@@ -1,0 +1,36 @@
+mixin pokemonForm(pokemon, actionURL, mode, title)
+
+    div.form-panel
+        div.header= title
+            form(action=actionURL method='post')
+                div.form-input
+                    label(for='name') Name:
+                    input(type='text' id='name' name='name' value=pokemon.name)
+                div.form-input
+                    label(for='type') Type
+                    select(id='type' name='type' autocomplete='off')
+                        each type in types
+                            option(value=types selected = (types ===pokemon.types)) #{types}
+                div.form-input
+                    label(for='health') Health
+                    input(type='text' id='health' name='health' value=pokemon.health)
+                div.form-input
+                    label(for='image') Image URL:
+                    input(type='text' id='image' name='image' value=pokemon.image)
+                div.form-input
+                    label(for='attackone') Attack One:
+                    input(type='text' id='attackone' name='attackone' value=pokemon.attackone)
+                div.form-input
+                    label(for='attacktwo') Attack Two:
+                    input(type='text' id='attacktwo' name='attacktwo' value=pokemon.attacktwo)
+                div.form-input
+                    label(for='attackonecost') Attack One Cost:
+                    input(type='text' id='attackonecost' name='attackonecost' value=pokemon.attackonecost)
+                div.form-input
+                    label(for='attacktwocost') Attack Two Cost:
+                    input(type='text' id='attacktwocost' name='attacktwocost' value=pokemon.attacktwocost)
+                div.button-row
+                    a.button.cancel(href='/') Cancel
+                    if (mode==='edit')
+                        a.button.delete(href=`/delete/${pokemon.id}`) Delete
+                    button.button.save(type='submit') Submit

@@ -1,0 +1,20 @@
+body {
+  padding: 0px;
+  margin: 0;
+  background: #f3f4f6;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.container {
+  padding: 48px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  width: 350px;
+}

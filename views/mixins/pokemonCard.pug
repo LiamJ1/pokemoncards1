@@ -1,0 +1,16 @@
+mixin pokemonCard(pokemon)
+
+    div.card
+        div.card-header
+            div.types=pokemon.types
+            div.card-title=pokemon.name
+            img.card-header-image(src=pokemon.image)
+        div.card-body
+            div.edit
+                a(href=`/edit/${pokemon.id}`) Edit
+            div.card-details
+                div.attacks=pokemon.attackone
+                div.attackCost=pokemon.attackonecost
+            div.card-details2
+                div.attacks=pokemon.attacktwo
+                div.attackCost=pokemon.attacktwocost

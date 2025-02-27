@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  include mixins/pokemonCard
+  div.container
+    form(action='/' method='get')
+      div.form-input
+        label(for='type') Types
+        select(id='type' name='types' autocomplete='off')
+          each type in types
+            option(value=type selected = (type === searchType)) #{type}
+        div.form-input
+          label(for='random') Random
+          input(type='checkbox' name='random' id='random' checked=searchRandom)
+      button.button.save(type='submit') Filter
+  div.container
+    div.add-button-row
+      a.button.save(href='/add') Add Card
+  div.container
+    each pokemon in pokemons
+      +pokemonCard(pokemon)
