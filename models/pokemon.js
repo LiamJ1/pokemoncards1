@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Pokemon',
-    tableName: 'pokemon',
+    tableName: 'pokemoncards',
     timestamps: false,
   });
   return Pokemon;

@@ -5,8 +5,8 @@ block content
   div.container
     form(action='/' method='get')
       div.form-input
-        label(for='type') Types
-        select(id='type' name='types' autocomplete='off')
+        label(for='type') Type
+        select(id='type' name='type' autocomplete='off')
           each type in types
             option(value=type selected = (type === searchType)) #{type}
         div.form-input

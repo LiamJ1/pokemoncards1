@@ -10,7 +10,7 @@ mixin pokemonForm(pokemon, actionURL, mode, title)
                     label(for='type') Type
                     select(id='type' name='type' autocomplete='off')
                         each type in types
-                            option(value=types selected = (types ===pokemon.types)) #{types}
+                            option(value=type selected = (type ===pokemon.type)) #{type}
                 div.form-input
                     label(for='health') Health
                     input(type='text' id='health' name='health' value=pokemon.health)

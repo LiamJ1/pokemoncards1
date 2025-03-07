@@ -1,8 +1,10 @@
 const {Pokemon} = require('../models')
-const types = ['Grass', 'Fire', 'Water', 'Fairy', 'Ice', 'Bug', 'Dragon', 'Ghost', 'Poison','Dark', 'Rock', 'Electric', 'Ground'];
+const types = ['Grass', 'fire', 'Water', 'Fairy', 'Ice', 'Bug', 'Dragon'
+    , 'Ghost', 'Poison', 'Dark', 'Rock', 'Electric',
+    'Ground', 'Steel', 'Normal', 'Fighting', 'Flying', 'Stellar', 'Physic'];
 module.exports.viewAll = async function(req, res, next) {
     let searchTypes = ['All'];
-    for(let i = 0; i<types.length; i++) {
+    for(i=0; i<types.length; i++){
         searchTypes.push(types[i]);
     }
     let pokemons;
@@ -17,11 +19,11 @@ module.exports.viewAll = async function(req, res, next) {
             }
         });
     }
-    if (pokemons.length > 0) {
+    if (searchRandom && pokemons.length > 0){
         let randomIndex = getRandomInt(pokemons.length);
         pokemons = [pokemons[randomIndex]];
     }
-    res.render('index', {pokemons, types:searchTypes, searchType, searchRandom});
+    res.render('index', {pokemons, types:searchTypes, searchType});
 }
 
 module.exports.renderEditForm = async function(req, res, next) {
@@ -74,6 +76,19 @@ module.exports.renderAddForm = function(req, res) {
         attacktwocost: "",
     };
     res.render('add', {pokemon, types});
+}
+module.exports.addPokemon = async function(req, res){
+    await Pokemon.create ({
+        name: req.body.name,
+        health: req.body.health,
+        type: req.body.type,
+        image: req.body.image,
+        attackone: req.body.attackone,
+        attacktwo: req.body.attacktwo,
+        attackonecost: req.body.attackonecost,
+        attacktwocost: req.body.attacktwocost,
+    });
+    res.redirect('/');
 }
 
 function getRandomInt(max) {
