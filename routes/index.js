@@ -11,5 +11,6 @@ router.post('/edit/:id', pokemonController.updatePokemon);
 router.get('/delete/:id', pokemonController.deletePokemon);
 
 router.get('/add', pokemonController.renderAddForm);
+router.post('/add', pokemonController.addPokemob);
 
 module.exports = router;
